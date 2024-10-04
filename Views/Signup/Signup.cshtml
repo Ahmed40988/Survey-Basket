@@ -1,0 +1,114 @@
+﻿@model Handmade.Models.Signup
+@{
+    ViewData["Title"] = "Signup";
+}
+<div class="container mt-5">
+    <div class="card shadow-lg">
+        <div class="card-header text-white text-center" style="background: linear-gradient(135deg, #f2994a, #f2c94c);">
+            <h2>Join Handmades</h2>
+        </div>
+        <div class="card-body">
+            <form method="post" action="/Signup/ADDnewuser" class="needs-validation" novalidate>
+                <!-- Name -->
+                <div class="form-group mb-3">
+                    <label for="Name" class="form-label">Name</label>
+                    <input name="Name" type="text" value="@Model?.Name" class="form-control" placeholder="Enter your name" required />
+                </div>
+
+                <!-- Email -->
+                <div class="form-group mb-3">
+                    <label for="Email" class="form-label">Email</label>
+                    <input name="Email" type="email" value="@Model?.Email" class="form-control" placeholder="Enter your email" required />
+                </div>
+
+                <!-- Gender -->
+                <div class="form-group mb-3">
+                    <label for="Gender" class="form-label">Gender</label>
+                    <select name="Gender" class="form-control" required>
+                        <option value="M" selected>Male</option>
+                        <option value="F">Female</option>
+                    </select>
+                </div>
+
+                <!-- Password -->
+                <div class="form-group mb-3">
+                    <label for="Password" class="form-label">Password</label>
+                    <input name="Password" type="password" value="@Model?.Password" class="form-control" placeholder="Enter your password" required />
+                </div>
+
+                <!-- Confirm Password -->
+                <div class="form-group mb-3">
+                    <label for="ConfirmPassword" class="form-label">Confirm Password</label>
+                    <input name="ConfirmPassword" type="password" value="@Model?.ConfirmPassword" class="form-control" placeholder="Confirm your password" required />
+                </div>
+
+                <!-- Phone -->
+                <div class="form-group mb-3">
+                    <label for="Phone" class="form-label">Phone</label>
+                    <input name="Phone" type="tel" value="@Model?.Phone" class="form-control" placeholder="Enter your phone number" required />
+                </div>
+
+                <!-- Vodafone Cash -->
+                <div class="form-group mb-3">
+                    <label for="vodafoneCash" class="form-label">Vodafone Cash</label>
+                    <input name="vodafoneCash" id="vodafoneCash" value="@Model?.VodafonCash" type="text" class="form-control" placeholder="Enter your Vodafone Cash number" required />
+                </div>
+
+                <!-- InstaPay -->
+                <div class="form-group mb-3">
+                    <label for="instaPay" class="form-label">InstaPay</label>
+                    <input name="instaPay" id="instaPay" value="@Model?.InstaPay" type="text" class="form-control" placeholder="Enter your InstaPay number" required />
+                </div>
+
+                <!-- Submit Button -->
+                <div class="d-grid">
+                    <input type="submit" value="Sign Up" class="btn btn-custom" />
+                </div>
+            </form>
+        </div>
+        <div class="card-footer text-center">
+            <a href="/" class="btn btn-secondary">Back to Home</a>
+        </div>
+    </div>
+</div>
+
+<!-- CSS Styles -->
+<style>
+    body {
+        background-image: url('@Url.Content("")'); /* Image path from wwwroot */
+        background-size: cover;
+        background-attachment: fixed;
+        background-blend-mode: overlay;
+        background-color: rgba(255, 245, 238, 0.9);
+    }
+
+    .card {
+        max-width: 600px;
+        margin: auto;
+        border-radius: 12px;
+        background-color: rgba(255, 255, 255, 0.95);
+    }
+
+    .form-control {
+        border-radius: 8px;
+        border: 1px solid #d1d1d1;
+    }
+
+    .btn-custom {
+        background-color: #f2994a;
+        border-color: #f2994a;
+        color: #fff;
+        border-radius: 6px;
+        transition: background-color 0.3s ease;
+    }
+
+        .btn-custom:hover {
+            background-color: #f2c94c;
+        }
+
+    .card-header {
+        font-family: 'Courier New', Courier, monospace; /* Font reflecting handmade theme */
+        border-bottom: none;
+    }
+</style>
+
