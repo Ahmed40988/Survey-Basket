@@ -13,12 +13,14 @@
                 <div class="form-group mb-3">
                     <label asp-for="Name" class="form-label"></label>
                     <input asp-for="Name" class="form-control" placeholder="Enter your name" required />
+                    <span asp-validation-for="Name" class=" text-danger"></span>
                 </div>
 
                 <!-- Email -->
                 <div class="form-group mb-3">
                     <label asp-for="Email" class="form-label"></label>
                     <input asp-for ="Email" class="form-control" placeholder="Enter your email" required />
+                    <span asp-validation-for="Email" class=" text-danger"></span>
                 </div>
 
                 <!-- Gender -->
@@ -38,30 +40,21 @@
                 <div class="form-group mb-3">
                     <label asp-for="Password" class="form-label"></label>
                     <input asp-for="Password" class="form-control" placeholder="Enter your password" required />
+                    <span asp-validation-for="Password" class=" text-danger"></span>
                 </div>
 
                 <!-- Confirm Password -->
                 <div class="form-group mb-3">
                     <label asp-for="ConfirmPassword" class="form-label"></label>
                     <input asp-for="ConfirmPassword" class="form-control" placeholder="Confirm your password" required />
+                    <span asp-validation-for="ConfirmPassword" class=" text-danger"></span>
                 </div>
 
                 <!-- Phone -->
                 <div class="form-group mb-3">
                     <label asp-for="Phone" class="form-label"></label>
                     <input asp-for="Phone" class="form-control" placeholder="Enter your phone number" required />
-                </div>
-
-                <!-- Vodafone Cash -->
-                <div class="form-group mb-3">
-                    <label asp-for="VodafonCash" class="form-label"></label>
-                    <input asp-for="VodafonCash" class="form-control" placeholder="Enter your Vodafone Cash number" required />
-                </div>
-
-                <!-- InstaPay -->
-                <div class="form-group mb-3">
-                    <label asp-for="InstaPay" class="form-label">InstaPay</label>
-                    <input asp-for ="InstaPay" class="form-control" placeholder="Enter your InstaPay number" required />
+                    <span asp-validation-for="Phone" class=" text-danger"></span>
                 </div>
 
                 <!-- Submit Button -->

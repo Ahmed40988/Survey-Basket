@@ -27,8 +27,5 @@ namespace Handmade.Models
 
         [Required(ErrorMessage = "Phone is required")]
         public string Phone { get; set; }
-
-        public string VodafonCash { get; set; }
-        public string InstaPay { get; set; }
     }
 }

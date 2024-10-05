@@ -22,7 +22,7 @@ namespace Handmade.Controllers
         [HttpPost]
         public IActionResult ADDnewuser(Signup signup)
         {
-            if (signup.Name!=null) // تأكد من صحة النموذج
+            if (ModelState.IsValid) // تأكد من صحة النموذج
             {
                 _context.Signups.Add(signup); // تأكد من استخدام الاسم الصحيح
                 _context.SaveChanges();
