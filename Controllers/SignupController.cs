@@ -15,6 +15,7 @@ namespace Handmade.Controllers
 
         public IActionResult Signup()
         {
+           
             return View();
         }
 
