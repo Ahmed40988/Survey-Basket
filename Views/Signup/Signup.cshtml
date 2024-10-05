@@ -1,0 +1,111 @@
+﻿@model Handmade.Models.Signup
+@{
+    ViewData["Title"] = "Signup";
+}
+<div class="container mt-5">
+    <div class="card shadow-lg">
+        <div class="card-header text-white text-center" style="background: linear-gradient(135deg, #f2994a, #f2c94c);">
+            <h2>Join Handmades</h2>
+        </div>
+        <div class="card-body">
+            <form method="post" asp-action="ADDnewuser" asp-controllor="Signup"  class="needs-validation" novalidate>
+                <!-- Name -->
+                <div class="form-group mb-3">
+                    <label asp-for="Name" class="form-label"></label>
+                    <input asp-for="Name" class="form-control" placeholder="Enter your name" required />
+                    <span asp-validation-for="Name" class=" text-danger"></span>
+                </div>
+
+                <!-- Email -->
+                <div class="form-group mb-3">
+                    <label asp-for="Email" class="form-label"></label>
+                    <input asp-for ="Email" class="form-control" placeholder="Enter your email" required />
+                    <span asp-validation-for="Email" class=" text-danger"></span>
+                </div>
+
+                <!-- Gender -->
+                <div class="form-group mb-3">
+                    <label asp-for="Gender" class="form-label"></label>
+                    <select asp-for="Gender" class="form-control" asp-items="@(new SelectList(new List<SelectListItem>
+    {
+        new SelectListItem { Text = "Select the Gender", Value = "" },
+        new SelectListItem { Text = "Male", Value = "M" },
+        new SelectListItem { Text = "Female", Value = "F" }
+    }, "Value", "Text"))" required>
+                    </select>
+                </div>
+
+
+                <!-- Password -->
+                <div class="form-group mb-3">
+                    <label asp-for="Password" class="form-label"></label>
+                    <input asp-for="Password" class="form-control" placeholder="Enter your password" required />
+                    <span asp-validation-for="Password" class=" text-danger"></span>
+                </div>
+
+                <!-- Confirm Password -->
+                <div class="form-group mb-3">
+                    <label asp-for="ConfirmPassword" class="form-label"></label>
+                    <input asp-for="ConfirmPassword" class="form-control" placeholder="Confirm your password" required />
+                    <span asp-validation-for="ConfirmPassword" class=" text-danger"></span>
+                </div>
+
+                <!-- Phone -->
+                <div class="form-group mb-3">
+                    <label asp-for="Phone" class="form-label"></label>
+                    <input asp-for="Phone" class="form-control" placeholder="Enter your phone number" required />
+                    <span asp-validation-for="Phone" class=" text-danger"></span>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="d-grid">
+                    <input type="submit" value="Sign Up" class="btn btn-custom" />
+                </div>
+            </form>
+        </div>
+        <div class="card-footer text-center">
+            <a href="/" class="btn btn-secondary">Back to Home</a>
+        </div>
+    </div>
+</div>
+
+<!-- CSS Styles -->
+<style>
+    body {
+        background-image: url('@Url.Content("")'); /* Image path from wwwroot */
+        background-size: cover;
+        background-attachment: fixed;
+        background-blend-mode: overlay;
+        background-color: rgba(255, 245, 238, 0.9);
+    }
+
+    .card {
+        max-width: 600px;
+        margin: auto;
+        border-radius: 12px;
+        background-color: rgba(255, 255, 255, 0.95);
+    }
+
+    .form-control {
+        border-radius: 8px;
+        border: 1px solid #d1d1d1;
+    }
+
+    .btn-custom {
+        background-color: #f2994a;
+        border-color: #f2994a;
+        color: #fff;
+        border-radius: 6px;
+        transition: background-color 0.3s ease;
+    }
+
+        .btn-custom:hover {
+            background-color: #f2c94c;
+        }
+
+    .card-header {
+        font-family: 'Courier New', Courier, monospace; /* Font reflecting handmade theme */
+        border-bottom: none;
+    }
+</style>
+
