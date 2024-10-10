@@ -1,10 +1,26 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+@model IEnumerable<Handmades.Models.Product>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container mt-4">
+    <h1 class="text-center mb-4">Products</h1>
+
+    <div class="search-container mb-4 text-center">
+        <form method="get" action="@Url.Action("Index", "Home")" class="form-inline justify-content-center">
+            <input type="text" name="search" class="form-control mr-2" placeholder="Search for products..." />
+            <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+    </div>
+
+    <div class="row">
+        @foreach (var product in Model)
+        {
+            <div class="col-md-6 mb-4">
+                <div class="product-card border rounded p-3 text-center">
+                    <img src="@product.ImageUrl" alt="@product.Name" class="img-fluid mb-2" />
+                    <h4 class="product-name">@product.Name</h4>
+                    <p class="product-price">@product.Price.ToString("C")</p>
+                    <a href="@Url.Action("Details", "Home", new { id = product.Id })" class="btn btn-secondary">View Details</a>
+                </div>
+            </div>
+        }
+    </div>
 </div>
-
-
