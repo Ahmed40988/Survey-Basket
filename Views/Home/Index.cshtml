@@ -1,4 +1,4 @@
-@* @model IEnumerable<Handmades.Models.Product>
+@model IEnumerable<Handmades.Models.Product>
 
 <div class="container mt-4">
     <h1 class="text-center mb-4">Products</h1>
@@ -18,10 +18,9 @@
                     <img src="@product.ImageUrl" alt="@product.Name" class="img-fluid mb-2" />
                     <h4 class="product-name">@product.Name</h4>
                     <p class="product-price">@product.Price.ToString("C")</p>
-                    <a href="@Url.Action("Details", "Home", new { id = product.Id })" class="btn btn-secondary">View Details</a>
+                    <a href="@Url.Action("Details", "Home", new { id = product.ID })" class="btn btn-secondary">View Details</a>
                 </div>
             </div>
         }
     </div>
 </div>
- *@
