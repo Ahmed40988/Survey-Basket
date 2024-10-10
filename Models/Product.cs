@@ -16,6 +16,8 @@ namespace Handmades.Models
         [MaxLength(200)]
         [MinLength(10)]
         public string Description { get; set; }
+        [Required]
+        //public decimal Price {  get; set; }
 
         public int User_ID { get; set; }
         public int Category_ID { get; set; }
