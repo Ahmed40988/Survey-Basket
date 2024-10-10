@@ -15,8 +15,8 @@ namespace Handmades.Models
         // Navigation properties
         public ICollection<Product> Products { get; set; }  // المنتجات اللي البائع بيعرضها
 
-        public ICollection<Order> Orders { get; set; }  // الطلبات اللي المستخدم عملها
-
-        public ICollection<Review> Reviews { get; set; }  // التقييمات اللي المستخدم كتبها أو استلمها
+        public ICollection<Order> Orders { get; set; }
+        public ICollection<Review> Reviews { get; set; }
     }
-}
+    }
+
