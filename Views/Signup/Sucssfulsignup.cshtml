@@ -1,9 +1,11 @@
-﻿
+﻿@model Handmades.Models.User
 @{
-    ViewData["Title"] = "Sucssfulsignup";
+    ViewData["Title"] = "Registration Successful";
 }
 
 
 <h1>Registration Successful</h1>
 <p>Thank you for signing up!</p>
 <a href="/Signup/Signup" class="btn btn-secondary">Go to Signup</a>
+<a href="@Url.Action("Showuser", "User", new { id = @Model.ID })" class=" btn btn-secondary" >View Profile</a>
+

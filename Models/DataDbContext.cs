@@ -5,6 +5,10 @@ namespace Handmades.Models
 {
     public class DataDbContext   : DbContext
     {
+        public DataDbContext()
+        {
+        }
+
         public DataDbContext(DbContextOptions<DataDbContext> options) : base(options)
         {
         }

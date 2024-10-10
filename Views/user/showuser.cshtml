@@ -1,0 +1,28 @@
+﻿@model Handmades.Models.User
+
+@{
+    ViewData["Title"] = "User Profile"; // تأكد من أن العنوان واضح
+}
+
+<div class="container mt-5">
+    <div class="card shadow-lg">
+        <div class="card-header text-center" style="background-color: #f2994a; color: white;">
+            <h2>@Model.Name</h2>
+        </div>
+        <div class="card-body text-center">
+            <img src="@Model.imageUrl" alt="@Model.Name's Image" class="img-fluid rounded-circle" style="width: 150px; height: 150px;" />
+            <h3 class="mt-3">@Model.Email</h3>
+            <p class="mt-3">Welcome to your profile! You can update your information or browse products.</p>
+            <a href="/Signup/Signup" class="btn btn-secondary">Go to Signup</a>
+        </div>
+    </div>
+</div>
+
+<style>
+    body {
+        background-color: #f8f9fa; /* لون الخلفية */
+    }
+    .card {
+        border-radius: 15px; /* جعل زوايا الكارد ناعمة */
+    }
+</style>

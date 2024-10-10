@@ -1,4 +1,5 @@
-﻿namespace Handmades.Models
+﻿using Microsoft.EntityFrameworkCore;
+namespace Handmades.Models
 {
     public class Cart
     {

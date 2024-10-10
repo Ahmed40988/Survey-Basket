@@ -8,7 +8,9 @@
             <h2>Join Handmades</h2>
         </div>
         <div class="card-body">
-            <form method="post" asp-action="ADDnewuser" asp-controllor="Signup"  class="needs-validation" novalidate>
+            <!-- اضافة enctype لدعم رفع الملفات -->
+            <form method="post" asp-action="ADDnewuser" asp-controller="Signup" class="needs-validation" enctype="multipart/form-data" novalidate>
+
                 <!-- Name -->
                 <div class="form-group mb-3">
                     <label asp-for="Name" class="form-label"></label>
@@ -19,7 +21,7 @@
                 <!-- Email -->
                 <div class="form-group mb-3">
                     <label asp-for="Email" class="form-label"></label>
-                    <input asp-for ="Email" class="form-control" placeholder="Enter your email" required />
+                    <input asp-for="Email" class="form-control" placeholder="Enter your email" required />
                     <span asp-validation-for="Email" class=" text-danger"></span>
                 </div>
 
@@ -34,7 +36,6 @@
     }, "Value", "Text"))" required>
                     </select>
                 </div>
-
 
                 <!-- Password -->
                 <div class="form-group mb-3">
@@ -55,6 +56,13 @@
                     <label asp-for="Phone" class="form-label"></label>
                     <input asp-for="Phone" class="form-control" placeholder="Enter your phone number" required />
                     <span asp-validation-for="Phone" class=" text-danger"></span>
+                </div>
+
+                <!-- Image URL -->
+                <div class="form-group mb-3">
+                    <label asp-for="imageurl" class="form-label"></label>
+                    <input asp-for="imageurl" type="file" class="form-control" required />
+                    <span asp-validation-for="imageurl" class=" text-danger"></span>
                 </div>
 
                 <!-- Submit Button -->
@@ -108,4 +116,11 @@
         border-bottom: none;
     }
 </style>
+@* to Allow use validation in cline site don't go to server
+in every time to check validation*@
+<script src="/lib/jquery/dist/jquery.min.js"></script>
+<script src="/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+ 
+
 

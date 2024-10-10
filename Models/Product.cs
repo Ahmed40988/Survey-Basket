@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc.ViewEngines;
 using System.ComponentModel.DataAnnotations;
+using Microsoft.EntityFrameworkCore;
 
 namespace Handmades.Models
 {

@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Handmades.Models; // تأكد من إضافة مساحة الاسم الصحيحة
+using Handmades.Models;
+using Microsoft.AspNetCore.Http.Features; // تأكد من إضافة مساحة الاسم الصحيحة
 
 namespace Handmade
 {
@@ -13,12 +14,18 @@ namespace Handmade
             builder.Services.AddDbContext<DataDbContext>(options =>
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-            // Add services to the container.
+            // إضافة إعدادات الحد الأقصى لحجم الملفات
+            builder.Services.Configure<FormOptions>(options =>
+            {
+                options.MultipartBodyLengthLimit = 10 * 1024 * 1024; // 10 ميغابايت
+            });
+
+            // إضافة الخدمات إلى الحاوية.
             builder.Services.AddControllersWithViews();
 
             var app = builder.Build();
 
-            // Configure the HTTP request pipeline.
+            // تكوين قناة طلب HTTP.
             if (!app.Environment.IsDevelopment())
             {
                 app.UseExceptionHandler("/Home/Error");
