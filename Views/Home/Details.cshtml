@@ -1,0 +1,9 @@
+﻿@model Handmades.Models.Product
+
+<div class="container">
+    <h1>@Model.Name</h1>
+    <img src="@Model.ImageUrl" alt="@Model.Name" class="img-fluid" />
+    <h3>Price: @Model.Price.ToString("C")</h3>
+    <p>@Model.Description</p>
+    <a href="@Url.Action("Index", "Home")" class="btn btn-secondary">Back to Products</a>
+</div>
