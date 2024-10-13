@@ -15,7 +15,9 @@
         {
             <div class="col-md-6 mb-4">
                 <div class="product-card border rounded p-3 text-center">
-                    <img src="@product.ImageUrl" alt="@product.Name" class="img-fluid mb-2" />
+                   @*  <img src="@product.ImageUrl" alt="@product.Name" class="img-fluid mb-2" /> *@
+                   
+                    <img src="/images/@product.ImageUrl" height="90px" />
                     <h4 class="product-name">@product.Name</h4>
                     <p class="product-price">@product.Price.ToString("C")</p>
                     <a href="@Url.Action("Details", "Home", new { id = product.ID })" class="btn btn-secondary">View Details</a>
