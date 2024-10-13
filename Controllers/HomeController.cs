@@ -3,6 +3,7 @@ using Handmade.Models;
 using System.Collections.Generic;
 using System.Linq;
 using Handmades.Models;
+using Handmade.ViewModel;
 
 public class HomeController : Controller
 {
@@ -36,6 +37,26 @@ public class HomeController : Controller
             return NotFound();
         }
         return View(product);
+    }
+    public IActionResult categorie(int id) 
+    {
+        var categories = _context.Categories.ToList();
+
+
+        List<Product> products = new List<Product>();
+        if (id != null)
+        {
+            products = _context.Products.Where(p => p.Category_ID == id).ToList();
+        }
+
+        var model = new CategorieAndProductViewmodel
+        {
+            Categories = categories,
+            Products = products,
+            SelectedCategoryID = id
+        };
+
+        return View(model);
     }
 }
 
