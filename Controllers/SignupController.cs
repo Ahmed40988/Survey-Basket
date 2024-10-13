@@ -53,6 +53,9 @@ namespace Handmade.Controllers
                 _context.Users.Add(user);
                 await _context.SaveChangesAsync(); // حفظ التغييرات في قاعدة البيانات
 
+                // تعيين ID المستخدم في ViewBag
+                ViewBag.UserId = user.ID; // تعيين ID في ViewBag
+
                 return RedirectToAction("Sucssfulsignup", new { id = user.ID }); // استخدم ID المستخدم الجديد
             }
 

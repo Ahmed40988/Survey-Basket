@@ -20,6 +20,9 @@ namespace Handmade
                 options.MultipartBodyLengthLimit = 10 * 1024 * 1024; // 10 ميغابايت
             });
 
+            // إضافة خدمات الجلسة
+            builder.Services.AddSession(); // إضافة خدمة الجلسة
+
             // إضافة الخدمات إلى الحاوية.
             builder.Services.AddControllersWithViews();
 
@@ -35,6 +38,7 @@ namespace Handmade
             app.UseRouting();
 
             app.UseAuthorization();
+            app.UseSession(); // تفعيل خدمة الجلسة
 
             app.MapControllerRoute(
                 name: "default",
