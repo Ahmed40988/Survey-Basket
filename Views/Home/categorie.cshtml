@@ -1,0 +1,45 @@
+﻿@model CategorieAndProductViewmodel
+@{
+    ViewData["Title"] = "categorie";
+}
+
+<form method="get" asp-action="Categorie" asp-controller="Home">
+    <select name="id" onchange="this.form.submit()">
+    <option value="">-- Select Category --</option>
+    @foreach (var category in Model.Categories)
+    {
+        <option value="@category.ID" >@(category.ID == Model.SelectedCategoryID ? "selected='selected'" : "")
+            @category.Name
+        </option>
+    }
+</select>
+
+</form>
+
+@if (Model.Products != null && Model.Products.Any())
+{
+    <h2>Products</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Product Name</th>
+                <th>Price</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var product in Model.Products)
+            {
+                <tr>
+                    <td>@product.Name</td>
+                    <td>@product.Price</td>
+                    <td>@product.Description</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+} 
+ else
+{
+    <p>No products available for the selected category.</p>
+}
