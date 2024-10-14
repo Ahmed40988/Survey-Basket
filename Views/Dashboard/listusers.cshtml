@@ -1,0 +1,63 @@
+﻿@model List<Handmades.Models.User>
+
+@{
+    ViewData["Title"] = "listusers";
+}
+<div class="container mt-3">
+    <h2 class="text-center mb-4">User Management</h2>
+
+
+    <!-- User List Table -->
+    <div class="row justify-content-center">
+        <div class="col-12">
+            <table class="table table-bordered table-hover table-responsive">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>ID</th>
+                        <th>Image</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                      <th>Role</th> 
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var user in Model)
+                    {
+                        <tr>
+                            <td>@user.ID</td>
+                            <td>
+                                @if (!string.IsNullOrEmpty(user.imageUrl))
+                                {
+                                    <img src="@user.imageUrl" alt="User Image"
+                                         class="img-thumbnail" style="width: 100px; height: 100px;" />
+                                }
+                                else
+                                {
+                                    <span>No Image</span>
+                                }
+                            </td>
+
+                            <td>@user.Name</td>
+                            <td>@user.Email</td>
+                           <td>@user.RoleId</td> 
+                            <td>
+                                <div class="btn-group" role="group" aria-label="Actions">
+                                    <a asp-action="Edit" asp-controller="user" asp-route-id="@user.ID"
+                                       class="btn btn-sm btn-outline-warning me-2 d-flex align-items-center">
+                                        ✏️
+                                    </a>
+                                    <a asp-action="Delete" asp-controller="user" asp-route-id="@user.ID"
+                                       class="btn btn-sm btn-outline-danger d-flex align-items-center"
+                                       style="color: red;">
+                                        🗑️ Delete
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

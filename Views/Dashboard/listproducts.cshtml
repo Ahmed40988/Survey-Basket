@@ -1,0 +1,79 @@
+﻿@model List<Handmades.Models.Product>
+@{
+    ViewData["Title"] = "listproducts";
+}
+
+<div class="container mt-3">
+    <h2 class="text-center mb-4">Product Management</h2>
+
+    <!-- Add Product Button -->
+    <div class="text-right mb-3">
+        <a asp-controller="Product" asp-action="Add" class="btn btn-secondary text-white">
+            ➕ Add New Product
+        </a>
+    </div>
+
+
+    <!-- Product List Table -->
+    <div class="row justify-content-center">
+        <div class="col-12">
+            <table class="table table-bordered table-hover table-responsive">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>ID</th>
+                        <th>Image</th>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Price</th>
+                        <th>Address</th>
+                        <th>Category ID</th>
+                        <th>User ID</th>
+                        <th>Supplier ID</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var product in Model)
+                    {
+                        <tr>
+                            <td>@product.ID</td>
+                            <td>
+                                @if (!string.IsNullOrEmpty(product.ImageUrl))
+                                {
+                                    <img src="@product.ImageUrl" alt="Product Image"
+                                         class="img-thumbnail" style="width: 100px; height: 100px;" />
+                                }
+                                else
+                                {
+                                    <span>No Image</span>
+                                }
+                            </td>
+                            <td>@product.Name</td>
+                            <td>@product.Description</td>
+                            <td>@product.Price</td>
+                            <td>@product.Address</td>
+                            <td>@product.Category_ID</td>
+                            <td>@product.User_ID</td>
+                            <td>@product.SupplierId </td>
+                            <td>
+                                <div class="btn-group" role="group" aria-label="Actions">
+                                    <a asp-action="Edit" asp-controller="Product" asp-route-id="@product.ID"
+                                       class="btn btn-sm btn-outline-warning me-2 d-flex align-items-center">
+                                        ✏️ 
+                                        </a>
+                                        <a asp-action="Delete" asp-controller="Product" asp-route-id="@product.ID"
+                                           class="btn btn-sm btn-outline-danger d-flex align-items-center"
+                                           style="color: red;">
+                                            🗑️ Delete
+                                        </a>
+
+                                </div>
+
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

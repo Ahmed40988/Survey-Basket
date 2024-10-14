@@ -23,6 +23,8 @@ namespace Handmades.Models
 
         public DbSet<Cart> Carts { get; set; }
         public DbSet<Payment> Payments { get; set; }
+        public DbSet<Role> Roles { get; set; }
+        public DbSet<Supplier> suppliers { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

@@ -3,7 +3,7 @@
     ViewData["Title"] = "categorie";
 }
 
-<form method="get" asp-action="Categorie" asp-controller="Home">
+<form method="get" asp-action="Categorie" asp-controller="Home"  class="form form-control">
     <select name="id" onchange="this.form.submit()">
     <option value="">-- Select Category --</option>
     @foreach (var category in Model.Categories)

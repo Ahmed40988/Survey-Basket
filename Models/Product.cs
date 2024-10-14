@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc.ViewEngines;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.EntityFrameworkCore;
+using Handmade.Models;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Handmades.Models
 {
@@ -22,13 +24,18 @@ namespace Handmades.Models
         public int User_ID { get; set; }
         public int Category_ID { get; set; }
 
-        public decimal Price { get; internal set; }
-        public string ImageUrl { get; internal set; }
+        public decimal Price { get;  set; }
+        public string ImageUrl { get;  set; }
 
         public Category Category { get; set; }
         public User User { get; set; }
         public ICollection<OrderDetails> OrderDetails { get; set; }
         public ICollection<Review> Reviews { get; set; }
+
+        public int? SupplierId { get; set; }
+
+        [ForeignKey("SupplierId")]
+        public virtual Supplier? Supplier { get; set; }
     }
 
 }
