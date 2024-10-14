@@ -38,7 +38,7 @@ public class HomeController : Controller
         }
         return View(product);
     }
-    public IActionResult categorie(int id) 
+    public IActionResult Categorie(int id) 
     {
         var categories = _context.Categories.ToList();
 

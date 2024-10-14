@@ -1,4 +1,4 @@
-﻿@model CategorieAndProductViewmodel
+﻿@* @model CategorieAndProductViewmodel
 @{
     ViewData["Title"] = "categorie";
 }
@@ -8,9 +8,10 @@
     <option value="">-- Select Category --</option>
     @foreach (var category in Model.Categories)
     {
-        <option value="@category.ID" >@(category.ID == Model.SelectedCategoryID ? "selected='selected'" : "")
-            @category.Name
-        </option>
+            <option value="@category.ID" selected="@(category.ID == Model.SelectedCategoryID ? "selected" : null)">
+                @category.Name
+            </option>
+
     }
 </select>
 
@@ -43,3 +44,47 @@
 {
     <p>No products available for the selected category.</p>
 }
+ *@
+
+                @model CategorieAndProductViewmodel
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - YourAppName</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+    <script src="~/js/site.js"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <!-- Add other menu items or navigation links here -->
+            <ul>
+                <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+                <li><a asp-controller="Products" asp-action="Index">Products</a></li>
+            </ul>
+            <!-- Dropdown Form (for selecting category) -->
+            <form method="get" asp-action="Categorie" asp-controller="Home">
+                <select name="id" onchange="this.form.submit()">
+                    <option value="">-- Select Category --</option>
+                    @foreach (var category in Model.Categories)
+                    {
+                        <option value="@category.ID" selected="@(category.ID == Model.SelectedCategoryID ? "selected" : null)">
+                            @category.Name
+                        </option>
+                    }
+                </select>
+            </form>
+        </nav>
+    </header>
+
+    <div class="container">
+        @RenderBody()
+    </div>
+
+    <footer>
+        <p>&copy; @DateTime.Now.Year - YourAppName</p>
+    </footer>
+</body>
+</html>
