@@ -34,3 +34,24 @@ packages/
 .nuget/
 .vscode/
 .cache/
+.android/
+.bash_history
+.cache/
+.dotnet/
+.gitconfig
+.lesshst
+.viminfo
+AppData/
+Creative Cloud Files/
+Desktop/
+Documents/
+# Ignore system files and folders
+*.log
+.DS_Store
+Thumbs.db
+AppData/
+Cookies/
+Local Settings/
+My Documents/
+Desktop/
+Templates/
