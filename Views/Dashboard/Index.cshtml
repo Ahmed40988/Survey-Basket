@@ -1,25 +1,55 @@
-﻿
-@{
-    ViewData["Title"] = "Index";
+﻿@{
+    ViewData["Title"] = "Dashboard";
 }
-<div class="text-right mb-3">
-    <a asp-controller="Dashboard" asp-action="listusers" class="btn btn-secondary text-white">
-        Users
-    </a>
-</div>
-<div class="text-right mb-3">
-    <a asp-controller="Dashboard" asp-action="listproducts" class="btn btn-secondary text-white">
-        Products
-    </a>
-</div>
-<div class="text-right mb-3">
-    <a asp-controller="Dashboard" asp-action="listcategore" class="btn btn-secondary text-white">
-        Categories
-    </a>
-</div>
-<div class="text-right mb-3">
-    <a asp-controller="Dashboard" asp-action="listorder" class="btn btn-secondary text-white">
-        Orders
-    </a>
+<div class="container mt-5">
+    <h1 class="text-center text-light mb-4">Admin Dashboard</h1>
+
+    <div class="row text-center">
+        <div class="col-md-3 mb-3">
+            <a asp-controller="Dashboard" asp-action="listusers" class="btn btn-dark btn-lg w-100 py-3">
+                <i class="fas fa-users"></i> Users
+            </a>
+        </div>
+        <div class="col-md-3 mb-3">
+            <a asp-controller="Dashboard" asp-action="listproducts" class="btn btn-dark btn-lg w-100 py-3">
+                <i class="fas fa-box"></i> Products
+            </a>
+        </div>
+        <div class="col-md-3 mb-3">
+            <a asp-controller="Dashboard" asp-action="listcategore" class="btn btn-dark btn-lg w-100 py-3">
+                <i class="fas fa-tags"></i> Categories
+            </a>
+        </div>
+        <div class="col-md-3 mb-3">
+            <a asp-controller="Dashboard" asp-action="listorder" class="btn btn-dark btn-lg w-100 py-3">
+                <i class="fas fa-shopping-cart"></i> Orders
+            </a>
+        </div>
+    </div>
 </div>
 
+<style>
+    body {
+        background-color: #343a40;
+    }
+
+    h1 {
+        color: #f8f9fa;
+        font-weight: bold;
+    }
+
+    .btn-dark {
+        background-color: #495057;
+        border-color: #495057;
+        color: white;
+        transition: background-color 0.3s ease;
+    }
+
+        .btn-dark:hover {
+            background-color: #6c757d;
+        }
+
+    .fas {
+        margin-right: 8px;
+    }
+</style>
