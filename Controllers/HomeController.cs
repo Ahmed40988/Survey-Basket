@@ -38,26 +38,13 @@ public class HomeController : Controller
         }
         return View(product);
     }
+<<<<<<< HEAD
     public IActionResult Categorie(int id) 
     {
         var categories = _context.Categories.ToList();
+=======
+>>>>>>> 830dd8d11468e2587dcef9e416a34dfddc54cdfd
 
-
-        List<Product> products = new List<Product>();
-        if (id != null)
-        {
-            products = _context.Products.Where(p => p.Category_ID == id).ToList();
-        }
-
-        var model = new CategorieAndProductViewmodel
-        {
-            Categories = categories,
-            Products = products,
-            SelectedCategoryID = id
-        };
-
-        return View(model);
-    }
 }
 
 

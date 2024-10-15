@@ -23,10 +23,12 @@ namespace Handmades.Models
 
         public DbSet<Cart> Carts { get; set; }
         public DbSet<Payment> Payments { get; set; }
+        public DbSet<Role> Roles { get; set; }
+        public DbSet<Supplier> suppliers { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=.\\;Database=Handmade;Trusted_Connection=true; Encrypt=false;");
+            optionsBuilder.UseSqlServer("Server=db9031.public.databaseasp.net;Database=db9031; User Id=db9031; Password=x_9A3X!eo%2T; Encrypt=False; MultipleActiveResultSets=True;");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

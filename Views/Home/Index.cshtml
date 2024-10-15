@@ -2,6 +2,9 @@
 
 <div class="container mt-4">
     <h1 class="text-center mb-4">Products</h1>
+    <a href="@Url.Action("Add", "Product")" class="btn btn-secondary">Add Your Product</a>
+    <a href="@Url.Action("Index", "Dashboard")" class="btn btn-secondary">Dash Board</a>
+  
 
     <div class="search-container mb-4 text-center">
         <form method="get" action="@Url.Action("Index", "Home")" class="form-inline justify-content-center">
@@ -17,10 +20,12 @@
                 <div class="product-card border rounded p-3 text-center">
                    @*  <img src="@product.ImageUrl" alt="@product.Name" class="img-fluid mb-2" /> *@
                    
-                    <img src="/images/@product.ImageUrl" height="90px" />
+                    <img src="@product.ImageUrl" height="90px" />
                     <h4 class="product-name">@product.Name</h4>
                     <p class="product-price">@product.Price.ToString("C")</p>
                     <a href="@Url.Action("Details", "Home", new { id = product.ID })" class="btn btn-secondary">View Details</a>
+                    <a href="@Url.Action("Edit", "Product", new { id = product.ID })" class="btn btn-secondary">Edit Product</a>
+
                 </div>
             </div>
         }

@@ -22,47 +22,6 @@ namespace Handmade.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("Handmade.Models.Signup", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
-
-                    b.Property<string>("ConfirmPassword")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Gender")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(1)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Password")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Phone")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("imageurl")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("Signups");
-                });
-
             modelBuilder.Entity("Handmades.Models.Cart", b =>
                 {
                     b.Property<int>("ID")
@@ -249,12 +208,17 @@ namespace Handmade.Migrations
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
 
+                    b.Property<int?>("SupplierId")
+                        .HasColumnType("int");
+
                     b.Property<int>("User_ID")
                         .HasColumnType("int");
 
                     b.HasKey("ID");
 
                     b.HasIndex("Category_ID");
+
+                    b.HasIndex("SupplierId");
 
                     b.HasIndex("User_ID");
 
@@ -291,6 +255,92 @@ namespace Handmade.Migrations
                     b.ToTable("Reviews");
                 });
 
+            modelBuilder.Entity("Handmades.Models.Role", b =>
+                {
+                    b.Property<int>("RoleId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("RoleId"));
+
+                    b.Property<string>("RoleName")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.HasKey("RoleId");
+
+                    b.ToTable("Roles");
+                });
+
+            modelBuilder.Entity("Handmades.Models.Signup", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+
+                    b.Property<string>("ConfirmPassword")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Gender")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(1)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Phone")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("RoleId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("imageurl")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("Signups");
+                });
+
+            modelBuilder.Entity("Handmades.Models.Supplier", b =>
+                {
+                    b.Property<int>("SupplierId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("SupplierId"));
+
+                    b.Property<int?>("ID")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("RoleId")
+                        .HasColumnType("int");
+
+                    b.HasKey("SupplierId");
+
+                    b.HasIndex("ID");
+
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("suppliers");
+                });
+
             modelBuilder.Entity("Handmades.Models.User", b =>
                 {
                     b.Property<int>("ID")
@@ -307,11 +357,16 @@ namespace Handmade.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("RoleId")
+                        .HasColumnType("int");
+
                     b.Property<string>("imageUrl")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ID");
+
+                    b.HasIndex("RoleId");
 
                     b.ToTable("Users");
                 });
@@ -392,6 +447,10 @@ namespace Handmade.Migrations
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
+                    b.HasOne("Handmades.Models.Supplier", "Supplier")
+                        .WithMany("Products")
+                        .HasForeignKey("SupplierId");
+
                     b.HasOne("Handmades.Models.User", "User")
                         .WithMany("Products")
                         .HasForeignKey("User_ID")
@@ -399,6 +458,8 @@ namespace Handmade.Migrations
                         .IsRequired();
 
                     b.Navigation("Category");
+
+                    b.Navigation("Supplier");
 
                     b.Navigation("User");
                 });
@@ -422,6 +483,39 @@ namespace Handmade.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("Handmades.Models.Signup", b =>
+                {
+                    b.HasOne("Handmades.Models.Role", "Role")
+                        .WithMany()
+                        .HasForeignKey("RoleId");
+
+                    b.Navigation("Role");
+                });
+
+            modelBuilder.Entity("Handmades.Models.Supplier", b =>
+                {
+                    b.HasOne("Handmades.Models.User", "User")
+                        .WithMany()
+                        .HasForeignKey("ID");
+
+                    b.HasOne("Handmades.Models.Role", "Role")
+                        .WithMany("Suppliers")
+                        .HasForeignKey("RoleId");
+
+                    b.Navigation("Role");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("Handmades.Models.User", b =>
+                {
+                    b.HasOne("Handmades.Models.Role", "Role")
+                        .WithMany("Users")
+                        .HasForeignKey("RoleId");
+
+                    b.Navigation("Role");
+                });
+
             modelBuilder.Entity("Handmades.Models.Category", b =>
                 {
                     b.Navigation("Products");
@@ -440,6 +534,18 @@ namespace Handmade.Migrations
                     b.Navigation("OrderDetails");
 
                     b.Navigation("Reviews");
+                });
+
+            modelBuilder.Entity("Handmades.Models.Role", b =>
+                {
+                    b.Navigation("Suppliers");
+
+                    b.Navigation("Users");
+                });
+
+            modelBuilder.Entity("Handmades.Models.Supplier", b =>
+                {
+                    b.Navigation("Products");
                 });
 
             modelBuilder.Entity("Handmades.Models.User", b =>

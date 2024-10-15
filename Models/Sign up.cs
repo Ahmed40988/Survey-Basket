@@ -1,8 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
+﻿using Handmade.Models;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using static NuGet.Client.ManagedCodeConventions;
 
-namespace Handmade.Models
+namespace Handmades.Models
 {
     public class Signup
     {
@@ -33,5 +35,11 @@ namespace Handmade.Models
         public string Phone { get; set; }
        
         public string imageurl  { get; set; }
+
+
+        public int? RoleId { get; set; }
+
+        [ForeignKey("RoleId")]
+        public virtual Role? Role { get; set; }
     }
 }

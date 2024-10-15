@@ -47,7 +47,9 @@ namespace Handmade.Controllers
                 {
                     Name = signup.Name,
                     Email = signup.Email,
-                    imageUrl = signup.imageurl // تأكد من استخدام الاسم الصحيح للخاصية
+                    imageUrl = signup.imageurl ,
+                    RoleId = 2 //default user 
+
                 };
 
                 _context.Users.Add(user);

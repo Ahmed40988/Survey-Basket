@@ -1,0 +1,61 @@
+﻿
+@model Handmades.Models.User
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+@{
+    ViewData["Title"] = "Edit User";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-lg border-0">
+                <!-- تحسين الهيدر -->
+                <div class="card-header text-center text-white"
+                     style="background: linear-gradient(135deg, #6e7f80, #a0a4a5);">
+                    <h3 class="mb-0">Update User</h3>
+                </div>
+                <div class="card-body" style="background-color: #f9f9f9;">
+                    <form method="post" asp-action="saveaEditdep" asp-controller="User"
+                          asp-route-id="@Model.ID" enctype="multipart/form-data">
+
+                        <div class="form-group">
+                            <label asp-for="Name" class="font-weight-bold">User Name</label>
+                            <input asp-for="Name" class="form-control" placeholder="Enter user name" />
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="Email" class="font-weight-bold">Email</label>
+                            <input asp-for="Email" class="form-control" placeholder="Enter user email" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="RoleId" class="font-weight-bold">Role ID</label>
+                            <input asp-for="RoleId" class="form-control" placeholder="Enter role ID" />
+                            <span asp-validation-for="RoleId" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Current Image</label>
+                            <img src="@Model.imageUrl" alt="User Image" class="img-thumbnail mb-2" width="150" />
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="imageUrl" class="font-weight-bold">Upload New Image</label>
+                            <input asp-for="imageUrl" type="file" class="form-control-file" />
+                            <span asp-validation-for="imageUrl" class="text-danger"></span>
+                        </div>
+
+                        <button type="submit" class="btn btn-success btn-block mt-4">Update User</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
