@@ -97,7 +97,7 @@ namespace Handmade.Controllers
         {
             Product product = _context.Products.FirstOrDefault(d => d.ID == id);
             _context.Products.Remove(product);
-            _context.SaveChangesAsync();
+            _context.SaveChanges();
             return RedirectToAction("listproducts", "Dashboard");
         }
 

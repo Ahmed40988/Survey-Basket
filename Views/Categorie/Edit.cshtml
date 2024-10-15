@@ -1,0 +1,37 @@
+﻿@model Handmades.Models.Category
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-lg border-0">
+                <!-- تحسين الهيدر -->
+                <div class="card-header text-center text-white"
+                     style="background: linear-gradient(135deg, #6e7f80, #a0a4a5);">
+                    <h3 class="mb-0">Update Categorie</h3>
+                </div>
+                <div class="card-body" style="background-color: #f9f9f9;">
+                    <form method="post" asp-action="Editca" asp-controller="Categorie"
+                          asp-route-id="@Model.ID" enctype="multipart/form-data">
+
+                        <div class="form-group">
+                            <label asp-for="Name" class="font-weight-bold">Categorie Name</label>
+                            <input asp-for="Name" class="form-control" placeholder="Enter Categorie name" />
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="Description" class="font-weight-bold">Description</label>
+                            <textarea asp-for="Description" class="form-control" placeholder="Enter Categorie description"></textarea>
+                            <span asp-validation-for="Description" class="text-danger"></span>
+                        </div>
+
+                        <button type="submit" class="btn btn-success btn-block mt-4">Update Categorie</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

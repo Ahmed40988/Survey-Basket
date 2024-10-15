@@ -28,7 +28,7 @@ namespace Handmades.Models
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=.\\;Database=Handmade;Trusted_Connection=true; Encrypt=false;");
+            optionsBuilder.UseSqlServer("Server=db9031.public.databaseasp.net;Database=db9031; User Id=db9031; Password=x_9A3X!eo%2T; Encrypt=False; MultipleActiveResultSets=True;");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

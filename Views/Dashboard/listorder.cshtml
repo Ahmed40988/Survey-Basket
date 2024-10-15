@@ -1,0 +1,45 @@
+﻿@model List<Handmades.Models.Order>
+
+@{
+    ViewData["Title"] = "Orders List";
+}
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Orders List</h2>
+
+    <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th>ID</th>
+                <th>Order Date</th>
+                <th>Total Amount</th>
+                <th>User Name</th>
+                <th>Details</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.Count == 0)
+            {
+                <tr>
+                    <td colspan="5" class="text-center">No orders available.</td>
+                </tr>
+            }
+            else
+            {
+                @foreach (var order in Model)
+                {
+                    <tr>
+                        <td>@order.ID</td>
+                        <td>@order.OrderDate.ToString("dd-MM-yyyy")</td>
+                        <td>@order.TotalAmount.ToString("C")</td>
+                        <td>@order.User?.Name ?? "N/A"</td>
+                        <td>
+                            <a asp-action="OrderDetails" asp-route-id="@order.ID"
+                               class="btn btn-info btn-sm">View Details</a>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>

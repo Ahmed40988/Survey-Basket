@@ -26,5 +26,18 @@ namespace Handmade.Controllers
             var listusers = _context.Users.ToList();
             return View(listusers);
         }
+
+        public IActionResult listcategore()
+        {
+            var listcategore = _context.Categories.ToList();
+            return View(listcategore);
+        } 
+        public IActionResult listorder()
+        {
+            var listorder = _context.Orders.ToList();
+            return View(listorder);
+        }
+
+      
     }
 }

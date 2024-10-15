@@ -1,0 +1,59 @@
+﻿@model List<Handmades.Models.Category>
+@{
+    ViewData["Title"] = "listcategore";
+}
+
+<h1>listcategore</h1>
+
+<div class="container mt-3">
+    <h2 class="text-center mb-4">Categorie Management</h2>
+
+    <!-- Add Product Button -->
+    <div class="text-right mb-3">
+        <a asp-controller="Categorie" asp-action="Addcategory" class="btn btn-secondary text-white">
+            ➕ Add New Category
+        </a>
+    </div>
+
+
+    <!-- Product List Table -->
+    <div class="row justify-content-center">
+        <div class="col-12">
+            <table class="table table-bordered table-hover table-responsive">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var category in Model)
+                    {
+                        <tr>
+                            <td>@category.ID</td>
+                            <td>@category.Name</td>
+                            <td>@category.Description</td>
+                            <td>
+                                <div class="btn-group" role="group" aria-label="Actions">
+                                    <a asp-action="Editca" asp-controller="Categorie" asp-route-id="@category.ID"
+                                       class="btn btn-sm btn-outline-warning me-2 d-flex align-items-center">
+                                        ✏️
+                                    </a>
+                                    <a asp-action="Delete" asp-controller="Categorie" asp-route-id="@category.ID"
+                                       class="btn btn-sm btn-outline-danger d-flex align-items-center"
+                                       style="color: red;">
+                                        🗑️ Delete
+                                    </a>
+
+                                </div>
+
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
