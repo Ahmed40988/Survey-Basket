@@ -1,23 +1,22 @@
 ﻿@model List<Handmades.Models.User>
 
 @{
-    ViewData["Title"] = "listusers";
+    ViewData["Title"] = "User Management";
 }
-<div class="container mt-3">
-    <h2 class="text-center mb-4">User Management</h2>
 
+<div class="container-fluid mt-5">
+    <h2 class="text-center text-light mb-4">User Management</h2>
 
-    <!-- User List Table -->
     <div class="row justify-content-center">
         <div class="col-12">
-            <table class="table table-bordered table-hover table-responsive">
+            <table class="table table-bordered table-dark table-striped table-hover">
                 <thead class="thead-dark">
                     <tr>
                         <th>ID</th>
                         <th>Image</th>
                         <th>Name</th>
                         <th>Email</th>
-                      <th>Role</th> 
+                        <th>Role</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -37,19 +36,17 @@
                                     <span>No Image</span>
                                 }
                             </td>
-
                             <td>@user.Name</td>
                             <td>@user.Email</td>
-                           <td>@user.RoleId</td> 
+                            <td>@user.RoleId</td>
                             <td>
-                                <div class="btn-group" role="group" aria-label="Actions">
+                                <div class="btn-group" role="group">
                                     <a asp-action="Edit" asp-controller="user" asp-route-id="@user.ID"
-                                       class="btn btn-sm btn-outline-warning me-2 d-flex align-items-center">
-                                        ✏️
+                                       class="btn btn-sm btn-outline-warning me-2">
+                                        ✏️ Edit
                                     </a>
                                     <a asp-action="Delete" asp-controller="user" asp-route-id="@user.ID"
-                                       class="btn btn-sm btn-outline-danger d-flex align-items-center"
-                                       style="color: red;">
+                                       class="btn btn-sm btn-outline-danger">
                                         🗑️ Delete
                                     </a>
                                 </div>
@@ -61,3 +58,27 @@
         </div>
     </div>
 </div>
+
+<style>
+    body {
+        background-color: #343a40; /* لون خلفية غامق */
+    }
+
+    h2 {
+        color: #f8f9fa;
+    }
+
+    .table img {
+        border-radius: 50%;
+    }
+
+    .btn-outline-warning {
+        color: #ffc107;
+        border-color: #ffc107;
+    }
+
+    .btn-outline-danger {
+        color: red;
+        border-color: red;
+    }
+</style>
