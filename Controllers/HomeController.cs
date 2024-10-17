@@ -16,7 +16,7 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
-       List<Product> Products = _context.Products.ToList();
+        List<Product> Products = _context.Products.ToList();
 
 
         foreach (var product in Products)
@@ -38,14 +38,6 @@ public class HomeController : Controller
         }
         return View(product);
     }
-<<<<<<< HEAD
-    public IActionResult Categorie(int id) 
-    {
-        var categories = _context.Categories.ToList();
-=======
->>>>>>> 830dd8d11468e2587dcef9e416a34dfddc54cdfd
 
 }
-
-
 
