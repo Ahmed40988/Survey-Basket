@@ -1,11 +1,7 @@
-@model IEnumerable<Product>
+﻿@model IEnumerable<Product>
 <head>
 
-        <meta charset="utf-8">
-        <title>MultiShop - Online Shop Website Template</title>
-        <meta content="width=device-width, initial-scale=1.0" name="viewport">
-        <meta content="Free HTML Templates" name="keywords">
-        <meta content="Free HTML Templates" name="description">
+
 
         <!-- Favicon -->
         <link href="img/favicon.ico" rel="icon">
@@ -31,30 +27,122 @@
 
 
 <div class="container mt-4">
-    <h1 class="text-center mb-4">Products</h1>
+        @*      <h1 class="text-center mb-4">Products</h1>
     <!-- Add Product and Dashboard Buttons -->
-    <div class="mb-4 text-center">
+   <div class="mb-4 text-center">
         <a href="@Url.Action("Add", "Product")" class="btn btn-secondary mr-2">Add Your Product</a>
         <a href="@Url.Action("Index", "Dashboard")" class="btn btn-secondary">Dashboard</a>
-    </div>
+    </div> *@
 
     <!-- Search Form -->
-    <div class="search-container mb-4 text-center">
+   @*  <div class="search-container mb-4 text-center">
         <form method="get" action="@Url.Action("Index", "Home")" class="form-inline justify-content-center">
             <input type="text" name="search" class="form-control mr-2" placeholder="Search for products..." />
             <button type="submit" class="btn btn-primary">Search</button>
         </form>
-    </div>
+    </div> *@
 
     <!-- Product Grid -->
+        <!-- Carousel Start -->
+        <div class="container-fluid mb-3">
+            <div class="row px-xl-5">
+                <div class="col-lg-8">
+                    <div id="header-carousel" class="carousel slide carousel-fade mb-30 mb-lg-0" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#header-carousel" data-slide-to="0" class="active"></li>
+                            <li data-target="#header-carousel" data-slide-to="1"></li>
+                            <li data-target="#header-carousel" data-slide-to="2"></li>
+                        </ol>
+                        <div class="carousel-inner">
+                            <div class="carousel-item position-relative active" style="height: 430px;">
+                                <img class="position-absolute w-100 h-100" src="/images/digital-cyberspace-data-network-connections_24070-1044.jpg" style="object-fit: cover;">
+                                <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                                    <div class="p-3" style="max-width: 700px;">
+                                        <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown">digital product</h1>
+                                        <p class="mx-md-5 px-5 animate__animated animate__bounceIn">the digital and Coding in the Language of the age</p>
+                                        <a class="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp" href="#">Shop Now</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item position-relative" style="height: 430px;">
+                                <img class="position-absolute w-100 h-100" src="/images/pexels-pixabay-256450.jpg" style="object-fit: cover;">
+                                <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                                    <div class="p-3" style="max-width: 700px;">
+                                        <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown">Handmade Product</h1>
+                                        <p class="mx-md-5 px-5 animate__animated animate__bounceIn">sample and very good in use this product</p>
+                                        <a class="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp" href="#">Shop Now</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item position-relative" style="height: 430px;">
+                                <img class="position-absolute w-100 h-100" src="/images/pexels-ann-h-7737813.jpg" style="object-fit: cover;">
+                                <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                                    <div class="p-3" style="max-width: 700px;">
+                                        <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown">Art </h1>
+                                        <p class="mx-md-5 px-5 animate__animated animate__bounceIn">Art you and any think</p>
+                                        <a class="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp" href="#">Shop Now</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="product-offer mb-30" style="height: 200px;">
+                        <img class="img-fluid" src="/images/صور-برمجة9-768x512.jpg" alt="">
+                        <div class="offer-text">
+                            <h6 class="text-white text-uppercase">Save 20%</h6>
+                            <h3 class="text-white mb-3">Special Offer</h3>
+                            <a href="" class="btn btn-primary">Shop Now</a>
+                        </div>
+                    </div>
+                    <div class="product-offer mb-30" style="height: 200px;">
+                        <img class="img-fluid" src="/images/6.jpg" alt="">
+                        <div class="offer-text">
+                            <h6 class="text-white text-uppercase">Save 20%</h6>
+                            <h3 class="text-white mb-3">Special Offer</h3>
+                            <a href="" class="btn btn-primary">Shop Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid pt-5">
+            <div class="row px-xl-5 pb-3">
+                <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+                    <div class="d-flex align-items-center bg-light mb-4" style="padding: 30px;">
+                        <h1 class="fa fa-check text-primary m-0 mr-3"></h1>
+                        <h5 class="font-weight-semi-bold m-0">Quality Product</h5>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+                    <div class="d-flex align-items-center bg-light mb-4" style="padding: 30px;">
+                        <h1 class="fa fa-shipping-fast text-primary m-0 mr-2"></h1>
+                        <h5 class="font-weight-semi-bold m-0">Free Shipping</h5>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+                    <div class="d-flex align-items-center bg-light mb-4" style="padding: 30px;">
+                        <h1 class="fas fa-exchange-alt text-primary m-0 mr-3"></h1>
+                        <h5 class="font-weight-semi-bold m-0">14-Day Return</h5>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+                    <div class="d-flex align-items-center bg-light mb-4" style="padding: 30px;">
+                        <h1 class="fa fa-phone-volume text-primary m-0 mr-3"></h1>
+                        <h5 class="font-weight-semi-bold m-0">24/7 Support</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
     <div class="row">
         @foreach (var product in Model)
         {
             <div class="col-lg-4 col-md-6 col-sm-6 pb-1">
-                <div class="product-item bg-light mb-4">
+                <div class="product-item bg-light mb-3">
                     <!-- Product Image -->
                     <div class="product-img position-relative overflow-hidden">
-                        <img class="img-fluid w-100" src="@product.ImageUrl" alt="@product.Name" />
+                        <img class="img-fluid w-100 h-100" src="@product.ImageUrl" alt="@product.Name" />
                         
                         <div class="product-action">
                             <!-- Action Buttons (shopping cart, wishlist, etc.) -->

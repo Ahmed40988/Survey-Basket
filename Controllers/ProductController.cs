@@ -9,6 +9,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Security.Claims;
 
 
 namespace Handmade.Controllers
@@ -23,29 +25,49 @@ namespace Handmade.Controllers
         }
         public IActionResult Add()
         {
+            var categories = _context.Categories.Select(c => new SelectListItem
+            {
+                Value = c.ID.ToString(),
+                Text = c.Name
+            }).ToList();
+
+            ViewBag.Categories = new SelectList(categories, "Value", "Text");
             return View();
         }
         public async Task<IActionResult> Addnewproduct(Product product, IFormFile ImageUrl)
         {
             if (product.Name != null)
-            {
-                if (ImageUrl != null && ImageUrl.Length > 0)
+                if (product.Name != null)
                 {
-                    // تحديد المسار للصورة
-                    var imagePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images", ImageUrl.FileName);
-                    using (var stream = new FileStream(imagePath, FileMode.Create))
+                    if (ImageUrl != null && ImageUrl.Length > 0)
                     {
-                        await ImageUrl.CopyToAsync(stream);
+                        // تحديد المسار للصورة
+                        var imagePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images", ImageUrl.FileName);
+                        using (var stream = new FileStream(imagePath, FileMode.Create))
+                        {
+                            await ImageUrl.CopyToAsync(stream);
+                        }
+
+                        // تخزين المسار في الخاصية imageurl داخل النموذج
+                        product.ImageUrl = "/images/" + ImageUrl.FileName;
                     }
 
-                    // تخزين المسار في الخاصية imageurl داخل النموذج
-                    product.ImageUrl = "/images/" + ImageUrl.FileName;
-                }
-                _context.Products.Add(product);
-                await _context.SaveChangesAsync();
-                return RedirectToAction("Index", "Home");
+                    // Set the User_ID to the logged-in user's ID
+                   // product.User_ID = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
 
-            }
+                    _context.Products.Add(product);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction("Index", "Home");
+                }
+
+            // Repopulate categories if model state is invalid
+            var categories = _context.Categories.Select(c => new SelectListItem
+            {
+                Value = c.ID.ToString(),
+                Text = c.Name
+            }).ToList();
+
+            ViewBag.Categories = new SelectList(categories, "Value", "Text");
             return View("Add", product);
         }
       
