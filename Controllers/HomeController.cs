@@ -14,8 +14,25 @@ public class HomeController : Controller
         _context = context;
     }
 
-    public IActionResult Index()
+    public async Task<IActionResult> Index(int? pageNumber)
     {
+        //int pageSize = 5; // Number of products per page, you can change this
+
+        //// Get all products from the database
+        //var productsQuery = _context.Products.AsQueryable();
+
+        //// Apply null-checks for product properties
+        //foreach (var product in productsQuery)
+        //{
+        //    product.Name = product.Name ?? "No Name Available";
+        //    product.Description = product.Description ?? "No Description Available";
+        //    product.ImageUrl = product.ImageUrl ?? "/images/default.jpg"; // Default image if ImageUrl is null
+        //}
+
+        //// Use the paginated list method
+        ////var paginatedProducts = await PaginatedList<Product>.CreateAsync(productsQuery, pageNumber ?? 1, pageSize);
+
+        //return View(product);
         List<Product> Products = _context.Products.ToList();
 
 
@@ -28,6 +45,7 @@ public class HomeController : Controller
 
         return View(Products);
     }
+
 
     public IActionResult Details(int id)
     {

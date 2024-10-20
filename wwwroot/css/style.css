@@ -9671,11 +9671,21 @@ a.text-dark:hover, a.text-dark:focus {
 }
 
 .product-item .product-img img {
-  transition: .5s;
-}
+    transition: .5s;
 
+}
+/*.product-img img {
+    width: 100%;
+    height:50%;
+    object-fit:contain;
+
+}*/
+.test {
+width:300px;
+height:300px;
+}
 .product-item:hover .product-img img {
-  transform: scale(1.2);
+    transform: scale(1.2);
 }
 
 .product-item .btn:hover {
