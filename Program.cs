@@ -1,6 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Handmades.Models;
-using Microsoft.AspNetCore.Http.Features; // تأكد من إضافة مساحة الاسم الصحيحة
+using Microsoft.AspNetCore.Http.Features;
 
 namespace Handmade
 {
@@ -20,6 +20,15 @@ namespace Handmade
                 options.MultipartBodyLengthLimit = 10 * 1024 * 1024; // 10 ميغابايت
             });
 
+            // إضافة خدمات الجلسة
+            builder.Services.AddDistributedMemoryCache(); // يستخدم لتخزين بيانات الجلسات في الذاكرة
+            builder.Services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromMinutes(30); // مدة الجلسة 30 دقيقة
+                options.Cookie.HttpOnly = true;
+                options.Cookie.IsEssential = true;
+            });
+
             // إضافة الخدمات إلى الحاوية.
             builder.Services.AddControllersWithViews();
 
@@ -33,6 +42,9 @@ namespace Handmade
             app.UseStaticFiles();
 
             app.UseRouting();
+
+            // تفعيل الجلسات في التطبيق
+            app.UseSession();
 
             app.UseAuthorization();
 

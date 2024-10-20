@@ -2,8 +2,8 @@
     <div class="row justify-content-center">
         <div class="col-md-4">
             <div class="card shadow-lg">
-                <div class="card-header text-center text-white" style="background: linear-gradient(135deg, #f2994a, #f2c94c);">
-                    <h3>Login</h3>
+                <div class="card-header text-center text-white" style="background-color:#b99692; color:azure">
+                    <h3 style="color:azure">Login</h3>
                 </div>
                 <div class="card-body">
                     @if (ViewBag.ErrorMessage != null)
@@ -26,18 +26,24 @@
                             <div class="invalid-feedback">Password is required.</div>
                         </div>
 
-                        <button type="submit" class="btn btn-primary btn-block mt-3">Login</button>
+                        <button type="submit" class="btn btn-primary btn-block mt-3" style="background-color:#b99692;color:azure">Login</button>
                     </form>
                 </div>
 
                 <div class="card-footer text-center">
-                    <a href="/Signup/Signup">Don't have an account? Register</a>
+                    <a href="/Signup/Signup" style="color:#c99a96;">Don't have an account? Register</a>
                 </div>
             </div>
         </div>
     </div>
 </div>
+<style>
+    body{
+        background-color: rgba(255, 245, 238, 0.9);
+    }
+</style>
 @*
+
 <!-- Scripts for client-side validation -->
 <script src="/lib/jquery/dist/jquery.min.js"></script>
 <script src="/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
