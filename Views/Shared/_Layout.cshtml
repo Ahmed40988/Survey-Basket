@@ -29,7 +29,33 @@
 </head>
 <body>
 
-      
+        @* <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Handmade</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Signup" asp-action="Signup">Sign UP</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Login" asp-action="Login">Login</a>
+                        </li>
+                       <li></li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav> *@
     <!-- board of My Account-->
     <div class="container-fluid">
        <div class="row bg-secondary py-1 px-xl-5">
@@ -119,10 +145,10 @@
             </button>
             <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                 <div class="navbar-nav mr-auto py-0">
-                    <a href="@Url.Action("Index", "home")" class="nav-item nav-link active">Home</a>
+                    <a href="@Url.Action("Index", "Product")" class="nav-item nav-link active">Home</a>
                     <a href="@Url.Action("Add", "Product")" class="nav-item nav-link active">Add Your Product</a>
                     <a href="@Url.Action("Index", "Dashboard")" class="nav-item nav-link active">Dashboard</a>
-
+                    <a href="shop.html" class="nav-item nav-link">Shop</a>
                    
 
                     <div class="nav-item dropdown">
@@ -168,7 +194,9 @@
 
     <script src="~/lib/owlcarousel/owl.carousel.min.js"></script>
 
-
+    <!-- Contact Javascript File -->
+ @*    <script src="~/mail/jqBootstrapValidation.min.js"></script>
+    <script src="mail/contact.js"></script> *@
 
     <!-- Template Javascript -->
     <script src="~/js/main.js"></script>
