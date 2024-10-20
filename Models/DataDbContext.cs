@@ -1,4 +1,4 @@
-﻿using Handmade.Models;
+using Handmade.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace Handmades.Models
@@ -97,15 +97,12 @@ namespace Handmades.Models
             // إعدادات العلاقة بين Cart و Product
             modelBuilder.Entity<Cart>()
                 .HasOne(c => c.Product)
-                .WithMany()
+                .WithMany(p => p.Carts)
                 .HasForeignKey(c => c.Product_ID)
                 .OnDelete(DeleteBehavior.NoAction);
 
-            modelBuilder.Entity<Cart>()
-                .HasOne(c => c.Order)
-                .WithMany()
-                .HasForeignKey(c => c.Order_ID)
-                .OnDelete(DeleteBehavior.NoAction);
+
+
 
             // إعدادات العلاقة بين Payment و Order
             modelBuilder.Entity<Payment>()

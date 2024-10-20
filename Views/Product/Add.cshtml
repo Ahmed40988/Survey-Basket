@@ -9,12 +9,13 @@
         <div class="col-md-6">
             <div class="card shadow-lg border-0">
                 <!-- تحسين الهيدر -->
-                <div class="card-header text-center text-white"
-                     style="background: linear-gradient(135deg, #6e7f80, #a0a4a5);">
-                    <h3 class="mb-0">Add New Product</h3>
+                <div class="card-header text-center"
+                     style="background:#b99692">
+                    <h3 class="mb-0" style="color:azure">Add New Product</h3>
                 </div>
 
-                <div class="card-body" style="background-color: #f9f9f9;">
+
+                <div class="card-body" style="background-color: rgba(255, 255, 255, 0.95);">
                     <form method="post" asp-action="Addnewproduct" asp-controller="Product" enctype="multipart/form-data">
                         <div class="form-group">
                             <label asp-for="Name" class="font-weight-bold">Product Name</label>
@@ -66,11 +67,16 @@
                         </div>
 
                         <!-- Add Category Button -->
-                        <a href="@Url.Action("Add", "categorie")" class="btn btn-success btn-block mt-3">Add Category</a>
-                        <button type="submit" class="btn btn-success btn-block mt-4">Add Product</button>
+                        <a href="@Url.Action("Add", "categorie")" class="btn btn-success btn-block mt-3" style="background:#b99692;color:azure;border-color:#c99a96;">Add Category</a>
+                        <button type="submit" class="btn btn-success btn-block mt-4" style="background:#b99692;color:azure;border-color:#c99a96;">Add Product</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
 </div>
+<style>
+   body{
+        background-color: rgba(255, 245, 238, 0.9);
+   }
+</style>
