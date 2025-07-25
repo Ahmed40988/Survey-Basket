@@ -3,15 +3,37 @@
     "http": {
       "commandName": "Project",
       "launchBrowser": true,
+<<<<<<< HEAD
+=======
+      "launchUrl": "swagger",
+>>>>>>> 56182016bc31ebf74ff6a12359fc5d7fcb075e6d
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
       "dotnetRunMessages": true,
+<<<<<<< HEAD
       "applicationUrl": "http://localhost:5053"
+=======
+      "applicationUrl": "http://localhost:5195"
+    },
+    "https": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "swagger",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "dotnetRunMessages": true,
+      "applicationUrl": "https://localhost:7013;http://localhost:5195"
+>>>>>>> 56182016bc31ebf74ff6a12359fc5d7fcb075e6d
     },
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
+<<<<<<< HEAD
+=======
+      "launchUrl": "swagger",
+>>>>>>> 56182016bc31ebf74ff6a12359fc5d7fcb075e6d
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
@@ -19,10 +41,17 @@
     "WSL": {
       "commandName": "WSL2",
       "launchBrowser": true,
+<<<<<<< HEAD
       "launchUrl": "http://localhost:5053",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
         "ASPNETCORE_URLS": "http://localhost:5053"
+=======
+      "launchUrl": "https://localhost:7013/swagger",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "ASPNETCORE_URLS": "https://localhost:7013;http://localhost:5195"
+>>>>>>> 56182016bc31ebf74ff6a12359fc5d7fcb075e6d
       },
       "distributionName": ""
     }
@@ -32,8 +61,13 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
+<<<<<<< HEAD
       "applicationUrl": "http://localhost:22567",
       "sslPort": 0
+=======
+      "applicationUrl": "http://localhost:55137",
+      "sslPort": 44314
+>>>>>>> 56182016bc31ebf74ff6a12359fc5d7fcb075e6d
     }
   }
 }
